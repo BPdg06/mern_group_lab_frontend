@@ -25,14 +25,14 @@ const Form = (props) => {
       />
       <input
         type="text"
-        name="decription"
-        value={formData._id}
+        name="artist"
+        value={formData.artist}
         onChange={handleChange}
       />
       {/* <input
         type="text"
-        name="img"
-        value={formData.img}
+        name="time"
+        value={formData.time}
         onChange={handleChange}
       /> */}
       <input type="submit" value={props.label} />

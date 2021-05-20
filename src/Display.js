@@ -2,28 +2,31 @@ import React from "react";
 
 const Display = (props) => {
   // destruct the dogs from props
-  const {songs, selectSong, history} = props
+  const { songs } = props
+
 
   // Returns the JSX for when you have songs
   const loaded = () => (
     <div style={{textAlign: "center"}}>
-      {songs.map((song) => (
-        <article key={song._id}>
-          <img src={song.img} alt=""/>
-          <h1>{song.name}</h1>
-          <h3>{song.age}</h3>
-          <button onClick={() => {
-            selectSong(song)
-            history.push("/edit")
-          }}>
-            edit
-          </button>
-          <button onClick={() => {
-            props.deleteSong(song)
-          }}>
-            Delete
-          </button>
-        </article>
+        {songs.map((song) => (
+            <article key={song._id}>
+                <h1>{song.name}</h1>
+                <h3>{song.artist}</h3>
+                <h3>{song.time}</h3>
+                <button onClick={() => {
+                    props.selectSong(song)
+                    props.history.push("/edit")
+                }}>
+                Add to Favorite
+                </button>
+
+                <button onClick={() => {
+                props.deleteSong(song)
+                }}>
+                Delete
+                </button>
+            </article>
+
       ))}
     </div>
   )
