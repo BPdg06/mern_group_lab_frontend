@@ -7,7 +7,7 @@ import Form from "./Form";
 
 function App() {
 
-  const url = "http://localhost:3000";
+  const url = "https://songs-backend.herokuapp.com";
 
   const [songs, setSongs] = React.useState([])
 
@@ -42,6 +42,22 @@ function App() {
     }).then(() => getSongs());
   };
 
+  // update form
+  const handleUpdate = (song) => {
+    fetch(url + "/songs/" + song._id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(song),
+    }).then(() => getSongs());
+  };
+
+  // function of specify which song we are updated
+  const selectSong = (song) => {
+    setSelectedSong(song);
+  };
+
   // delete form
   const deleteSong = (song) => {
     fetch(url + "/songs/" + song._id, {
@@ -55,14 +71,15 @@ function App() {
   return (
     <div className="App">
       <h1>TUNR</h1>
-      <h3>For ALL YOUR PLAYLIST NEEDS</h3>
+      <h3>FOR ALL YOUR PLAYLIST NEEDS</h3>
       <hr />
       <main>
       <Switch>
           <Route exact path="/" render={(rp) => (
             <Display 
             {...rp} 
-            songs={songs} 
+            songs={songs}
+            selectSong={selectSong}
             deleteSong={deleteSong} 
             />
             )} 
@@ -74,7 +91,15 @@ function App() {
               <Form {...rp} label="create" song={emptySong} handleSubmit={handleCreate} />
             )}
           />
+          <Route
+            exact
+            path="/edit"
+            render={(rp) => (
+              <Form {...rp} label="update" song={selectedSong} handleSubmit={handleUpdate} />
+            )}
+          />
         </Switch>
+
       </main>
       <Link to="/create">
         <button>Add New Song</button>
