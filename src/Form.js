@@ -29,12 +29,12 @@ const Form = (props) => {
         value={formData.artist}
         onChange={handleChange}
       />
-      {/* <input
+      <input
         type="text"
         name="time"
         value={formData.time}
         onChange={handleChange}
-      /> */}
+      />
       <input type="submit" value={props.label} />
     </form>
   );
