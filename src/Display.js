@@ -2,24 +2,24 @@ import React from "react";
 
 const Display = (props) => {
   // destruct the dogs from props
-  const {places, selectPlace, history} = props
+  const {songs, selectSong, history} = props
 
-  // Returns the JSX for when you have places
+  // Returns the JSX for when you have songs
   const loaded = () => (
     <div style={{textAlign: "center"}}>
-      {places.map((place) => (
-        <article key={place._id}>
-          <img src={place.img} alt=""/>
-          <h1>{place.name}</h1>
-          <h3>{place.age}</h3>
+      {songs.map((song) => (
+        <article key={song._id}>
+          <img src={song.img} alt=""/>
+          <h1>{song.name}</h1>
+          <h3>{song.age}</h3>
           <button onClick={() => {
-            selectPlace(place)
+            selectSong(song)
             history.push("/edit")
           }}>
             edit
           </button>
           <button onClick={() => {
-            props.deletePlace(place)
+            props.deleteSong(song)
           }}>
             Delete
           </button>
@@ -30,7 +30,7 @@ const Display = (props) => {
 
   const loading = () => <h1>Loading</h1>
 
-  return places.length > 0 ? loaded() : loading()
+  return songs.length > 0 ? loaded() : loading()
 };
 
 export default Display;
