@@ -4,7 +4,8 @@ const Display = (props) => {
   // destruct the dogs from props
   const { songs } = props
 
-  // Returns the JSX for when you have places
+
+  // Returns the JSX for when you have songs
   const loaded = () => (
     <div style={{textAlign: "center"}}>
         {songs.map((song) => (
@@ -25,6 +26,7 @@ const Display = (props) => {
                 Delete
                 </button>
             </article>
+
       ))}
     </div>
   )
