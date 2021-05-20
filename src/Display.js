@@ -8,7 +8,7 @@ const Display = (props) => {
   // Returns the JSX for when you have songs
   const loaded = () => (
     <div style={{textAlign: "center"}}>
-        {songs.map((song) => (
+        {songs.data.map((song) => (
             <article key={song._id}>
                 <h1>{song.name}</h1>
                 <h3>{song.artist}</h3>
@@ -33,7 +33,7 @@ const Display = (props) => {
 
   const loading = () => <h1>Loading</h1>
 
-  return songs.length > 0 ? loaded() : loading()
+  return songs.data.length > 0 ? loaded() : loading()
 };
 
 export default Display;
