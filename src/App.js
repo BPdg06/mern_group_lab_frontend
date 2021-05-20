@@ -55,26 +55,25 @@ function App() {
   return (
     <div className="App">
       <h1>TUNR</h1>
-      <h3>For ALL YOUR PLAYLIST NEEDS</h3>
-      <hr />
+      <h3>FOR ALL YOUR PLAYLIST NEEDS</h3>
       <main>
-      <Switch>
-          <Route exact path="/" render={(rp) => (
-            <Display 
-            {...rp} 
-            songs={songs} 
-            deleteSong={deleteSong} 
+        <Switch>
+            <Route exact path="/" render={(rp) => (
+              <Display 
+              {...rp} 
+              songs={songs} 
+              deleteSong={deleteSong} 
+              />
+              )} 
             />
-            )} 
-          />
-          <Route
-            exact
-            path="/create"
-            render={(rp) => (
-              <Form {...rp} label="create" song={emptySong} handleSubmit={handleCreate} />
-            )}
-          />
-        </Switch>
+            <Route
+              exact
+              path="/create"
+              render={(rp) => (
+                <Form {...rp} label="create" song={emptySong} handleSubmit={handleCreate} />
+              )}
+            />
+          </Switch>
       </main>
       <Link to="/create">
         <button>Add New Song</button>

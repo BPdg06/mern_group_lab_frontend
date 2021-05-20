@@ -29,12 +29,12 @@ const Form = (props) => {
         value={formData._id}
         onChange={handleChange}
       />
-      <input
+      {/* <input
         type="text"
         name="img"
         value={formData.img}
         onChange={handleChange}
-      />
+      /> */}
       <input type="submit" value={props.label} />
     </form>
   );
