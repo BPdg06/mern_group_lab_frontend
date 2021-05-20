@@ -2,7 +2,7 @@ import React from "react";
 
 const Form = (props) => {
   //STATE FOR THE FORM
-  const [formData, setFormData] = React.useState(props.place);
+  const [formData, setFormData] = React.useState(props.song);
   
   //FUNCTIONS
   const handleSubmit = (event) => {
@@ -25,14 +25,14 @@ const Form = (props) => {
       />
       <input
         type="text"
-        name="decription"
-        value={formData._id}
+        name="artist"
+        value={formData.artist}
         onChange={handleChange}
       />
       <input
         type="text"
-        name="img"
-        value={formData.img}
+        name="time"
+        value={formData.time}
         onChange={handleChange}
       />
       <input type="submit" value={props.label} />
