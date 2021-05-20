@@ -9,7 +9,10 @@ function App() {
 
   const url = "https://songs-backend.herokuapp.com";
 
-  const [songs, setSongs] = React.useState([])
+  const [songs, setSongs] = React.useState({
+    status: 0,
+    data: []
+  })
 
   const emptySong = {
     name:"",
